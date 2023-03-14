@@ -1,0 +1,33 @@
+Create a bags merchandise database
+
+CREATE TABLE BAGS (id Integer Primary Key, typesofbags Text, color Text, size Text, price Integer);
+
+INSERT INTO BAGS Values (1, "Quilted braided chain bag", "Green", "Medium", "$80.00");
+INSERT INTO BAGS Values (2, "Canvas tote bag", "Black", "Extra-large", "$99.00");
+INSERT INTO BAGS Values (3, "Mini hobo bag", "Cream", "Extra-small", "$125.00");
+INSERT INTO BAGS Values (4, "Charlot bag", "Black", "Small", "$70.00");
+INSERT INTO BAGS Values (5, "Denim belted crossbody bag", "Dark grey", "Medium", "$80.00");
+INSERT INTO BAGS Values (6, "Altea bucket bag", "Cognac", "Large", "$140.00");
+INSERT INTO BAGS Values (7, "Sequinned double handle tote bag", "Silver", "Extra-small", "$110.00");
+INSERT INTO BAGS Values (8, "Louis sculptural top handle bag", "Lilac", "Small", "$110.00");
+INSERT INTO BAGS Values (9, "Trudy obre belted geometric bag", "Purple", "Extra-small", "$60.00");
+INSERT INTO BAGS Values (10, "Rabbit illustrated chain handle bag", "Cream", "Small", "$125,00");
+INSERT INTO BAGS Values (11, "Gobin leather crossbody bag", "Extra-small", "Cream", "$150.00");
+INSERT INTO BAGS Values (12, "Two tone bowling bag", "Cream", "Extra-small", "$175.00");
+INSERT INTO BAGS Values (13, "Diana crossbody bag", "Pink", "Extra-small", "$60.00");
+INSERT INTO BAGS Values (14, "Mini gobine leather saddle bag", "Turquise", "Small", "$125.00");
+INSERT INTO BAGS Values (15, "Koa square push-lock shoulder bag", "Pink", "Small", "$110.00");
+
+--display the database by typesofbags and price.
+SELECT typesofbags, price
+FROM BAGS,
+ORDER BY price desc;
+
+--What is the total price of all the bags.
+SELECT SUM(price)
+FROM BAGS;
+
+--what are the bags that has color 'cream'.
+SELECT typesofbags, color
+FROM BAGS,
+WHERE color = "cream";
