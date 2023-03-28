@@ -1,0 +1,62 @@
+CREATE TABLE Famous_people (id Integer Primary Key, FirstName Text, LastName Text, Age Integer, Country Text);
+
+INSERT INTO Famous_people VALUES (1, "Roger", "Federer", "41", "Switzerland");
+INSERT INTO Famous_people VALUES (2, "Mariah", "Carey", "53", "USA");
+INSERT INTO Famous_people VALUES (3, "Madonna", "Ciconne", "64", "USA");
+INSERT INTO Famous_people VALUES (4, "Serena", "Williams", "41", "USA");
+INSERT INTO Famous_people VALUES (5, "Maria", "Sharapova", "35", "Russia");
+INSERT INTO Famous_people VALUES (6, "Keanu", "Reeves", "58", "Canada");
+INSERT INTO Famous_people VALUES (7, "Tom", "Hanks", "66", "USA");
+INSERT INTO Famous_people VALUES (8, "Novak", "Djokovic", "35", "Serbia");
+INSERT INTO Famous_people VALUES (9, "Jennifer", "Lawrence", "32", "USA");
+INSERT INTO Famous_people VALUES (10, "Scarlet", "Johannson", "38", "USA");
+SELECT * FROM Famous_people;
+
+CREATE TABLE Occupation ( id Integer Primary Key, Job_description TEXT);
+
+INSERT INTO Occupation VALUES (1, "Tennis Player");
+INSERT INTO Occupation VALUES (2, "Singer-song writer");
+INSERT INTO Occupation VALUES (3, "Singer-song writer");
+INSERT INTO Occupation VALUES (4, "Tennis Player");
+INSERT INTO Occupation VALUES (5, "Tennis Player");
+INSERT INTO Occupation VALUES (6, "Movie star");
+INSERT INTO Occupation VALUES (7, "Movie star");
+INSERT INTO Occupation VALUES (8, "Tennis Player");
+INSERT INTO Occupation VALUES (9, "Movie star");
+INSERT INTO Occupation VALUES (10, "Movie star");
+SELECT * FROM Occupation;
+
+CREATE TABLE Movie_stars (movie_id Integer Primary Key, Movie TEXT);
+
+INSERT INTO Movie_stars VALUES (6, "John Wick");
+INSERT INTO Movie_stars VALUES (7, "Cast Away");
+INSERT INTO Movie_stars VALUES (9, "The Hunger Games");
+INSERT INTO Movie_stars VALUES (10, "Black Widdow");
+SELECT * FROM Movie_stars;
+
+-- What are the famous people occupations?
+
+SELECT F.id, F.FirstName, F.LastName, F.Age, F.Country, O.job_description
+FROM Famous_people F
+JOIN Occupation O
+ON F.id = O.id;
+
+-- What are the Job description of Famous people who participate in the movie?
+
+SELECT O.id, O.job_description, M.Movie
+FROM Occupation O
+JOIN Movie_stars M
+ON O.id = M.movie_id;
+
+-- Who are the famous people that is movie stars and what movies they are famous, And who among them have other occupations.
+
+SELECT F.ID, F.FirstName, F.LastName, M.Movie
+FROM Famous_people F
+LEFT JOIN Movie_stars M
+ON F.id = M.movie_id;
+
+-- Who are the people that is movie stars.
+SELECT F.ID, F.FirstName, F.LastName, M.Movie
+FROM Famous_people F
+Right JOIN Movie_stars M
+ON F.id = M.movie_id;
