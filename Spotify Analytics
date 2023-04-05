@@ -44,3 +44,14 @@ FROM BIT_DB.spotifydata
 ORDER BY popularity desc
 LIMIT 10
 
+#I also find out the average loudness by artist and track name.
+SELECT artist_name,
+track_name,
+avg(loudness)
+FROM BIT_DB.Spotifydata
+
+#Then i determined the maximum loudness by artist and track name.
+SELECT artist_name,
+track_name,
+max(loudness)
+FROM BIT_DB.Spotifydata;
